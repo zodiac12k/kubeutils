@@ -30,10 +30,10 @@ sudo ln -s /opt/kubeutils/kubecm /usr/local/bin/kubecm
 ### Usage
 ```
 $ kubecm
-/tmp/kube-config-dummy-6A01475C-86A8-4AAB-B5B3-5590BA018E1F.yml:/Users/aaa.bluemix/plugins/container-service/clusters/bbb-admin/kube-config-ccc.yml:/Users/xxx/.bluemix/plugins/container-service/clusters/yyy-admin/kube-config-zzz.yml:
+/tmp/kube-config-dummy-6A01475C-86A8-4AAB-B5B3-5590BA018E1F.yml:/Users/aaa/.bluemix/plugins/container-service/clusters/bbb-admin/kube-config-ccc.yml:/Users/xxx/.bluemix/plugins/container-service/clusters/yyy-admin/kube-config-zzz.yml:
 
 $ kubecm -r
 Start reload KUBECONFIG
 Finish reload KUBECONFIG
-/tmp/kube-config-dummy-6A01475C-86A8-4AAB-B5B3-5590BA018E1F.yml:/Users/aaa.bluemix/plugins/container-service/clusters/bbb-admin/kube-config-ccc.yml:/Users/xxx/.bluemix/plugins/container-service/clusters/yyy-admin/kube-config-zzz.yml:
+/tmp/kube-config-dummy-6A01475C-86A8-4AAB-B5B3-5590BA018E1F.yml:/Users/aaa/.bluemix/plugins/container-service/clusters/bbb-admin/kube-config-ccc.yml:/Users/xxx/.bluemix/plugins/container-service/clusters/yyy-admin/kube-config-zzz.yml:
 ```
