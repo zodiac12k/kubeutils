@@ -3,6 +3,8 @@ Useful kubernetes utilities
 
 ## kubecm
 
+`kubecm` is called kubernetes config manager or kubernetes config merger.
+
 ### Why this utility is born?
 
 If you download the kubeconfig via ibmcloud cli `ibmcloud cs cluster-config CLUSTER_NAME`, you can export only one kubernetes config.
