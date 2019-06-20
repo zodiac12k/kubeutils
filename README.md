@@ -3,6 +3,14 @@ Useful kubernetes utilities
 
 ## kubecm
 
+### Why this utility is born?
+
+If you download the kubeconfig via ibmcloud cli `ibmcloud cs cluster-config CLUSTER_NAME`, you can export only one kubernetes config.
+
+`kubectx` helps you switch among multiple cluster, but you cannot export multiple kubernetes configs easily for IBM kubernetes service.
+
+So this utility helps you manage and merge KUBECONFIG downloaded from IBM kubernetes service.
+
 ### Before you begin
 
 This utility can use only for Mac OS. It's not validated in other OS(Windows, Linux).
