@@ -5,8 +5,7 @@ Useful kubernetes utilities
 
 ### Before you begin
 
-This utility use only for Mac OS.
-Not validated in other OS(Windows, Linux).
+This utility can use only for Mac OS. It's not validated in other OS(Windows, Linux).
 
 You must install `yq` to use this utility.
 ```
