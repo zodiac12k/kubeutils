@@ -27,6 +27,18 @@ sudo git clone https://github.com/zodiac12k/kubeutils /opt/kubeutils
 sudo ln -s /opt/kubeutils/kubecm /usr/local/bin/kubecm
 ```
 
+If you want to reload automatically KUBECONFIG when your terminal session open:
+For zsh:
+```
+echo "kubecm -r" >> ~/.zshrc
+source ~/.zshrc
+```
+For bash:
+```
+echo "kubecm -r" >> ~/.bashrc
+source ~/.bashrc
+```
+
 ### Usage
 ```
 $ kubecm
