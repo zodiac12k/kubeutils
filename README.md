@@ -40,12 +40,12 @@ sudo ln -s /opt/kubeutils/kubecm /usr/local/bin/kubecm
 If you want to reload automatically KUBECONFIG when your terminal session open:
 For zsh:
 ```
-echo "kubecm -r" >> ~/.zshrc
+echo "source kubecm -r" >> ~/.zshrc
 source ~/.zshrc
 ```
 For bash:
 ```
-echo "kubecm -r" >> ~/.bashrc
+echo "source kubecm -r" >> ~/.bashrc
 source ~/.bashrc
 ```
 

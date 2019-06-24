@@ -58,6 +58,7 @@ main() {
       reload
     elif [[ "${1}" == "-h" || "${1}" == "--help" ]]; then
       usage
+      exit 1
     fi
   else
     usage
