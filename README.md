@@ -26,7 +26,7 @@ I recommend to install `kubectx`, `kube-ps1`, `k9s` to operate multi cluster eas
 ```
 $ brew install kubectx
 $ brew install kube-ps1
-$ brew install k9s
+$ brew install derailed/k9s/k9s
 ```
 
 ### Installation
