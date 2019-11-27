@@ -7,9 +7,9 @@ Useful kubernetes utilities
 
 ### Why this utility is born?
 
-If you download the kubeconfig via ibmcloud cli `ibmcloud cs cluster-config CLUSTER_NAME`, you can export only one kubernetes config.
+If you download the kubeconfig via ibmcloud cli `ibmcloud ks cluster config CLUSTER_NAME`, you can export only one kubernetes config.
 
-`kubectx` helps you switch among multiple cluster, but you cannot export multiple kubernetes configs easily for IBM kubernetes service.
+`kubectx` helps you switch among multiple clusters, but you cannot export multiple kubernetes configs easily for IBM kubernetes service.
 
 So this utility helps you manage and merge KUBECONFIG downloaded from IBM kubernetes service.
 
@@ -17,12 +17,7 @@ So this utility helps you manage and merge KUBECONFIG downloaded from IBM kubern
 
 This utility can use only for Mac OS. It's not validated in other OS(Windows, Linux).
 
-You must install `yq` to use this utility.
-```
-$ brew install yq
-```
-
-I recommend to install `kubectx`, `kube-ps1`, `k9s` to operate multi cluster easily.
+I recommend to install [kubectx](https://github.com/ahmetb/kubectx), [kube-ps1](https://github.com/jonmosco/kube-ps1), [k9s](https://github.com/derailed/k9s) to operate multi cluster easily.
 ```
 $ brew install kubectx
 $ brew install kube-ps1

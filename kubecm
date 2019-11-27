@@ -19,14 +19,19 @@ usage() {
 USAGE:
   kubecm                       : print current KUBECONFIG 
   kubecm -r                    : reload KUBECONFIG
+  kubecm -d <NAME> [<NAME...>] : delete config <NAME>
 
   kubecm -h,--help             : show this message
 EOF
 }
 
 reload() {
+  local dummy
+  dummy=/tmp/kube-config-dummy-${TERM_SESSION_ID##*:}.yml
+
   echo "Start reload KUBECONFIG"
-  cat > /tmp/kube-config-dummy-${TERM_SESSION_ID##*:}.yml <<EOF
+  if [ ! -f "${dummy}" ]; then
+    cat > ${dummy} <<EOF
 apiVersion: v1
 clusters:
 - cluster:
@@ -44,15 +49,37 @@ users:
 - name: dummy
   user: {}
 EOF
+  fi
 
-  export KUBECONFIG="/tmp/kube-config-dummy-${TERM_SESSION_ID##*:}.yml:$(find ~/.bluemix/plugins/container-service/clusters -path '*/*-admin/kube-config-*.yml' -exec bash -c 'cluster_name=`yq r $0 clusters[0].name`; yq w -i $0 contexts[0].context.user $cluster_name; yq w -i $0 users[0].name $cluster_name; echo $0' {} \; | tr '\n' ':')"
+  export KUBECONFIG="${dummy}:$(find ~/.bluemix/plugins/container-service/clusters -path '*/*-admin/kube-config-*.yml' | tr '\n' ':')"
   echo "Finish reload KUBECONFIG"
   echo $KUBECONFIG
+}
+
+delete_configs() {
+  for i in "${@}"; do
+    delete_config "${i}"
+  done
+  reload
+}
+
+delete_config() {
+  local cfg
+  cfg="${1}"
+  echo "Deleting config \"${cfg}\"..." >&2
+  rm -ri ~/.bluemix/plugins/container-service/clusters/${cfg}-admin
 }
 
 main() {
   if [[ "$#" -eq 0 ]]; then
     echo $KUBECONFIG
+  elif [[ "${1}" == "-d" ]]; then
+    if [[ "$#" -lt 2 ]]; then
+      echo "error: missing config NAME" >&2
+      usage
+      exit 1
+    fi
+    delete_configs "${@:2}"
   elif [[ "$#" -eq 1 ]]; then
     if [[ "${1}" == "-r" ]]; then
       reload
